@@ -21,6 +21,16 @@
 	<form:form method="POST" action="/processRegistrationForm" modelAttribute="user">
 
 		<p>
+			<form:label path="firstName">First Name:</form:label>
+			<form:input type="text" path="firstName"/>
+		</p>
+
+		<p>
+			<form:label path="lastName">Last Name:</form:label>
+			<form:input type="text" path="lastName"/>
+		</p>
+
+		<p>
 			<form:label path="email">Email:</form:label>
 			<form:input type="email" path="email"/>
 		</p>

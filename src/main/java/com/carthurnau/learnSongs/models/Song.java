@@ -1,44 +1,38 @@
 package com.carthurnau.learnSongs.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
-import javax.persistence.Transient;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="users")
-public class User {
-	
+@Table(name="songs")
+public class Song {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@Size(min=2)
-	private String firstName;
+	private String title;
 	
 	@Size(min=2)
-	private String lastName;
+	private String artist;
 	
-	@Email(message="Email must be valid")
-	private String email;
-	
-	@Size(min=5)
-	private String password;
-	
-	@Transient
-	private String passwordConfirmation;
+	@Size(min=2)
+	private String createdBy;
 	
     @Column(updatable=false)
     @DateTimeFormat(pattern = "MM/dd/yyyy HH:mm:ss")
@@ -55,8 +49,11 @@ public class User {
     protected void onUpdate(){
         this.updatedAt = new Date();
     }
+
+    @OneToMany(mappedBy="song", fetch = FetchType.LAZY)
+    private List<Language> languages;
     
-    public User() {
+    public Song() {
     	
     }
 	public Long getId() {
@@ -65,23 +62,23 @@ public class User {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getEmail() {
-		return email;
+	public String getTitle() {
+		return title;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setTitle(String title) {
+		this.title = title;
 	}
-	public String getPassword() {
-		return password;
+	public String getArtist() {
+		return artist;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setArtist(String artist) {
+		this.artist = artist;
 	}
-	public String getPasswordConfirmation() {
-		return passwordConfirmation;
+	public String getCreatedBy() {
+		return createdBy;
 	}
-	public void setPasswordConfirmation(String passwordConfirmation) {
-		this.passwordConfirmation = passwordConfirmation;
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
 	}
 	public Date getCreatedAt() {
 		return createdAt;
@@ -95,19 +92,13 @@ public class User {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	public String getFirstName() {
-		return firstName;
+	public List<Language> getLanguages() {
+		return languages;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setLanguages(List<Language> languages) {
+		this.languages = languages;
 	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
+    
+    
 	
-
 }

@@ -13,7 +13,7 @@
 
 <body>
 	
-	<h1>Welcome <c:out value="${user.email }"/></h1>
+	<h1>Welcome <c:out value="${user.firstName }"/></h1>
 	
 	<a href="/logout">Logout</a>
 	

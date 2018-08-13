@@ -4,41 +4,27 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
-import javax.persistence.Transient;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="users")
-public class User {
-	
+@Table(name = "lyrics")
+public class Lyric {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Size(min=2)
-	private String firstName;
-	
-	@Size(min=2)
-	private String lastName;
-	
-	@Email(message="Email must be valid")
-	private String email;
-	
-	@Size(min=5)
-	private String password;
-	
-	@Transient
-	private String passwordConfirmation;
+	private String line;
 	
     @Column(updatable=false)
     @DateTimeFormat(pattern = "MM/dd/yyyy HH:mm:ss")
@@ -56,7 +42,11 @@ public class User {
         this.updatedAt = new Date();
     }
     
-    public User() {
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "language_id")
+    private Language language;
+    
+    public Lyric() {
     	
     }
 	public Long getId() {
@@ -65,23 +55,11 @@ public class User {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getEmail() {
-		return email;
+	public String getLine() {
+		return line;
 	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getPasswordConfirmation() {
-		return passwordConfirmation;
-	}
-	public void setPasswordConfirmation(String passwordConfirmation) {
-		this.passwordConfirmation = passwordConfirmation;
+	public void setLine(String line) {
+		this.line = line;
 	}
 	public Date getCreatedAt() {
 		return createdAt;
@@ -95,19 +73,13 @@ public class User {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	public String getFirstName() {
-		return firstName;
+	public Language getLanguage() {
+		return language;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setLanguage(Language language) {
+		this.language = language;
 	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    
 
-	
-
+    
 }
