@@ -38,12 +38,12 @@ public class SongService {
 	
 	public List<Song> findByTitle(String title){
 		
-		return songRepository.findByTitle(title);
+		return songRepository.findByTitleContaining(title);
 	}
 	
 	public List<Song> findByArtist(String artist){
 		
-		return songRepository.findByArtist(artist);
+		return songRepository.findByArtistContaining(artist);
 	}
 	
 	public boolean uniqueSong(String title) {
