@@ -12,5 +12,5 @@ public interface SongRepository extends CrudRepository<Song, Long>{
 	
 	List<Song> findByTitle(String title);
 	
-
+	List<Song> findByArtist(String artist);
 }

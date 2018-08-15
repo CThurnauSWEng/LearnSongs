@@ -41,6 +41,11 @@ public class SongService {
 		return songRepository.findByTitle(title);
 	}
 	
+	public List<Song> findByArtist(String artist){
+		
+		return songRepository.findByArtist(artist);
+	}
+	
 	public boolean uniqueSong(String title) {
 		
 		ArrayList<Song> songs = (ArrayList) songRepository.findByTitle(title);

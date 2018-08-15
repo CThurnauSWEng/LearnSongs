@@ -26,34 +26,68 @@
 			</div>
 			
 			<p><a href="/newSong" class="linkOnSky">Add a new song</a>
+
+			<div class="searchDiv">
 			
-	<table>
-		<thead>
-			<tr>
-				<th>Title</th>
-				<th>Artist</th>
-				<th>Languages</th>
-				<th>Action</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items = "${allSongs }" var = "song">
-			<tr>
-				<td>
-					<a href="/${song.id}">
-						<c:out value="${song.title}"/></a>
-				</td>
-				<td><c:out value="${song.artist}"/></td>
-				<td>Placeholder for languages</td>
-				<td>
-					<a href="/delete/${song.id}">Delete</a>											
-				</td>
-			</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+				<form method="POST" action = "/searchByArtist">	
+					<div class="slabelDiv">
+						<label class="formLabel">Artist</label>				
+					</div>
+					<div class="sinputDiv">
+						<input type="text" name="artist" value=""/>				
+					</div>
+					
+					<input type="submit" value="Search">
+				</form>
+		
+			</div>
 			
+			<p></p>
+					
+			<div class="searchDiv">
 			
+				<form method="POST" action = "/searchByTitle">	
+					<div class="slabelDiv">
+						<label class="formLabel">Title</label>		
+					</div>
+					<div class="sinputDiv">
+						<input type="text" name="title" value=""/>				
+					</div>
+					
+					<input type="submit" value="Search">
+				</form>
+				
+				<a href="/home" class="ovalButtonSmall">Clear Search</a> 
+		
+			</div>
+
+			
+			<table>
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Artist</th>
+						<th>Languages</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items = "${songList }" var = "song">
+					<tr>
+						<td>
+							<a href="/${song.id}">
+								<c:out value="${song.title}"/></a>
+						</td>
+						<td><c:out value="${song.artist}"/></td>
+						<td>Placeholder for languages</td>
+						<td>
+							<a href="/delete/${song.id}">Delete</a>											
+						</td>
+					</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+					
 		
 		</div>
 		

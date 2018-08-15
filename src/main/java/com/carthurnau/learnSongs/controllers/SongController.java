@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.carthurnau.learnSongs.models.Song;
 import com.carthurnau.learnSongs.models.User;
@@ -34,8 +36,8 @@ public class SongController {
     	User user = (User) session.getAttribute("user");
     	model.addAttribute("user",user);
     	
-    	List<Song> allSongs = songService.findAll();
-    	model.addAttribute("allSongs",allSongs);
+    	List<Song> songList = songService.findAll();
+    	model.addAttribute("songList",songList);
     	
     	return "homePage.jsp";
     }
@@ -79,4 +81,29 @@ public class SongController {
 			
 		}
 	}
+	
+	@RequestMapping(value = "/searchByArtist", method = RequestMethod.POST)
+	public String searchByArtist(HttpSession session, Model model, @RequestParam(value="artist") String artist) {
+
+		User user = (User) session.getAttribute("user");
+		model.addAttribute("user",user);
+		
+		List<Song> songList = songService.findByArtist(artist);
+    	model.addAttribute("songList",songList);
+    	
+    	return "homePage.jsp";
+	}
+	
+	@RequestMapping(value = "/searchByTitle", method = RequestMethod.POST)
+	public String searchByTitle(HttpSession session, Model model, @RequestParam(value="title") String title) {
+		
+		User user = (User) session.getAttribute("user");
+		model.addAttribute("user",user);
+		
+		List<Song> songList = songService.findByTitle(title);
+    	model.addAttribute("songList",songList);
+    	
+    	return "homePage.jsp";
+	}
+	
 }

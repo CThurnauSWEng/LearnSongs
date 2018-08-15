@@ -5,8 +5,7 @@
 	color			: white;
 }
 
-.ovalButton {
-	font-size		: 1.2em;
+.ovalButton, .ovalButtonSmall {
 	color			: blue;
 	text-decoration	: none;
 	background-color: white;
@@ -16,7 +15,10 @@
 	top				: 25px;
 	left			: 20px;
 	margin			: 0px 10px 0px 10px;
-	padding			: 8px;
+	padding			: 4px;
+}
+.ovalButton {
+	font-size		: 1.1em;
 }
 
 .funTitle {
@@ -93,6 +95,23 @@ tr:nth-child(odd) {
 .linkOnSky {
 	color		: #d0d3f9;
 	margin-left	: 20px;
+}
+.searchDiv {
+	margin		: 10px;
+	padding		: 10px;
+	color		: white;
+	font-size	: 1.1em;
+}
+.formLabel {
+	color		: white;
+	font-size	: 1.1em;
+}
+.slabelDiv, .sinputDiv{
+	display			: inline-block;
+	vertical-align	: top;
+}
+.slabelDiv {
+	width		: 75px;
 }
 
 
