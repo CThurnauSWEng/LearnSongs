@@ -12,26 +12,41 @@
 </head>
 
 <body>
+	
+	<div class="sky">
+	
+		<div class="stars">
+		
+			<div class="genericForm">
 
-	<h1>Login</h1>
-	
-	<p><c:out value="${error }" /></p>
-	
-	<form method = "post" action="/login">
-		<p>
-			<label for="email">Email</label>
-			<input type="text" id="email" name="email"/>
-		</p>
+				<h1>Login</h1>
+				
+				<p><c:out value="${error }" /></p>
+				
+				<form method = "post" action="/login">
+					<div class="labelDiv">
+						<label for="email">Email:</label>
+						<p></p>
+						<label for="password">Password:</label>
+					</div>
+					
+					<div class="inputDiv">
+						<input type="text" id="email" name="email"/>
+						<p></p>
+						<input type="password" id="password" name="password"/>
+					</div>
+						
+					<p></p>
+					
+					<input type="submit" value="Login"/>
+					
+				</form>
+			
+			</div>
 		
-		<p>
-			<label for="password">Password</label>
-			<input type="password" id="password" name="password"/>
-		</p>
-		
-		<input type="submit" value="Login"/>
-		
-	</form>
-		
+		</div>
+				
+	</div>
 
 </body>
 </html>

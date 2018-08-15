@@ -118,18 +118,7 @@ public class LogRegController {
     	
     	
     }
-    
-    @RequestMapping("/home")
-    public String home(HttpSession session, Model model) {
-        // get user from session, save them in the model and return the home page
     	
-    	User user = (User) session.getAttribute("user");
-    	model.addAttribute("user",user);
-    	
-    	return "homePage.jsp";
-    }
-
-	
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
 

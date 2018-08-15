@@ -71,6 +71,30 @@ h3 {
 	display			: inline-block;
 	vertical-align	: top;
 }
+table {
+	margin-left: 15px;
+	margin-top: 50px;
+}
+table, td, th{
+	border: 1px solid black;
+	padding: 15px;
+	border-collapse: collapse;
+	font-size: 1.1em;
+}
+th {
+	background-color: #8e96f3;
+}
+tr:nth-child(even) {
+	background-color: #a0a6f3;
+}
+tr:nth-child(odd) {
+	background-color: #d0d3f9;
+}
+.linkOnSky {
+	color		: #d0d3f9;
+	margin-left	: 20px;
+}
+
 
 
 

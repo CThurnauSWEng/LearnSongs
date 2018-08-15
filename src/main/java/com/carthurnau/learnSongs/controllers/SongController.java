@@ -1,5 +1,7 @@
 package com.carthurnau.learnSongs.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -24,6 +26,21 @@ public class SongController {
 		this.songService 	= songService;
 		this.songValidator	 = songValidator;
 	}
+	
+    @RequestMapping("/home")
+    public String home(HttpSession session, Model model) {
+        // get user from session, save them in the model and return the home page
+    	
+    	User user = (User) session.getAttribute("user");
+    	model.addAttribute("user",user);
+    	
+    	List<Song> allSongs = songService.findAll();
+    	model.addAttribute("allSongs",allSongs);
+    	
+    	return "homePage.jsp";
+    }
+
+
 
 	@RequestMapping("/newSong")
 	public String newSongForm(Model model) {
@@ -41,8 +58,6 @@ public class SongController {
 			model.addAttribute("song",song);
 			return "newSongForm.jsp";
 		} else {
-
-//*** need to add validation for uniqueness here
 			
 			boolean isUnique = songService.uniqueSong(song.getTitle());
 			

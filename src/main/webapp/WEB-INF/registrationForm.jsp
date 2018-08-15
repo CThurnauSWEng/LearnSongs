@@ -12,42 +12,57 @@
 </head>
 
 <body>
-	<h1>Register</h1>
 	
-	<p>${error }</p>
+	<div class="sky">
+	
+		<div class="stars">
 		
-	<p><form:errors path="user.*"/></p>
+			<div class="genericForm">
 
-	<form:form method="POST" action="/processRegistrationForm" modelAttribute="user">
 
-		<p>
-			<form:label path="firstName">First Name:</form:label>
-			<form:input type="text" path="firstName"/>
-		</p>
-
-		<p>
-			<form:label path="lastName">Last Name:</form:label>
-			<form:input type="text" path="lastName"/>
-		</p>
-
-		<p>
-			<form:label path="email">Email:</form:label>
-			<form:input type="email" path="email"/>
-		</p>
-
-		<p>
-			<form:label path="password">Password:</form:label>
-			<form:input type="password" path="password"/>
-		</p>
-
-		<p>
-			<form:label path="passwordConfirmation">Confirm Password:</form:label>
-			<form:input type="password" path="passwordConfirmation"/>
-		</p>
+				<h1>Register</h1>
+				
+				<p>${error }</p>
+					
+				<p><form:errors path="user.*"/></p>
+			
+				<form:form method="POST" action="/processRegistrationForm" modelAttribute="user">
+			
+					<div class="labelDiv">
+						<form:label path="firstName">First Name:</form:label>
+						<p></p>
+						<form:label path="lastName">Last Name:</form:label>
+						<p></p>
+						<form:label path="email">Email:</form:label>
+						<p></p>
+						<form:label path="password">Password:</form:label>
+						<p></p>
+						<form:label path="passwordConfirmation">Confirm Password:</form:label>
+					</div>
+			
+					<div class="inputDiv">
+						<form:input type="text" path="firstName"/>
+						<p></p>
+						<form:input type="text" path="lastName"/>
+						<p></p>
+						<form:input type="email" path="email"/>
+						<p></p>
+						<form:input type="password" path="password"/>
+						<p></p>
+						<form:input type="password" path="passwordConfirmation"/>
+					</div>
+						
+					<p></p>
+					
+					<input type="submit" value="Register"/>
+					
+				</form:form>
+			</div>
 		
-		<input type="submit" value="Register"/>
-		
-	</form:form>
+		</div>
+				
+	</div>
+
 
 			
 </body>
