@@ -13,14 +13,18 @@
 
 <body>
 
-	<div id="wrapper">
+	<div class="sky">
 	
-		<div id="navbar">
+		<div class="stars">
+		
+			<div id="navbar">
 
-			<h1 class="funTitle">Learn Languages the fun way!</h1>
-	
-			<a href="/login" class="ovalButton" >Login</a>
-			<a href="/register" class="ovalButton"> Register</a>
+				<h1 class="funTitle">Learn Languages the fun way!</h1>
+		
+				<a href="/login" class="ovalButton" >Login</a>
+				<a href="/register" class="ovalButton"> Register</a>
+				
+			</div>
 		
 		</div>
 		
