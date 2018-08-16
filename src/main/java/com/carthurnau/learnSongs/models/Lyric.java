@@ -28,6 +28,9 @@ public class Lyric {
 	@Size(min=2)
 	private String line;
 	
+	@Size(min=2)
+	private String Language;
+	
     @Column(updatable=false)
     @DateTimeFormat(pattern = "MM/dd/yyyy HH:mm:ss")
     private Date createdAt;
@@ -45,8 +48,8 @@ public class Lyric {
     }
     
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "language_id")
-    private Language language;
+    @JoinColumn(name = "song_id")
+    private Song song;
     
     public Lyric() {
     	
@@ -63,6 +66,18 @@ public class Lyric {
 	public void setLine(String line) {
 		this.line = line;
 	}
+	public String getLanguage() {
+		return Language;
+	}
+	public void setLanguage(String language) {
+		Language = language;
+	}
+	public Song getSong() {
+		return song;
+	}
+	public void setSong(Song song) {
+		this.song = song;
+	}
 	public Date getCreatedAt() {
 		return createdAt;
 	}
@@ -75,13 +90,6 @@ public class Lyric {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	public Language getLanguage() {
-		return language;
-	}
-	public void setLanguage(Language language) {
-		this.language = language;
-	}
-    
 
     
 }

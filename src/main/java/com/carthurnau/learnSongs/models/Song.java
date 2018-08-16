@@ -51,7 +51,7 @@ public class Song {
     }
 
     @OneToMany(mappedBy="song", fetch = FetchType.LAZY)
-    private List<Language> languages;
+    private List<Lyric> lyrics;
     
     public Song() {
     	
@@ -92,11 +92,11 @@ public class Song {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	public List<Language> getLanguages() {
-		return languages;
+	public List<Lyric> getLyrics() {
+		return lyrics;
 	}
-	public void setLanguages(List<Language> languages) {
-		this.languages = languages;
+	public void setLyrics(List<Lyric> lyrics) {
+		this.lyrics = lyrics;
 	}
     
     
