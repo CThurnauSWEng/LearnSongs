@@ -58,8 +58,11 @@
 				</form>
 				
 				<a href="/home" class="ovalButtonSmall">Clear Search</a> 
+				
+				<h3>Select song title to display lyrics in multiple languages</h3>
 		
 			</div>
+			
 
 			
 			<table>
@@ -67,7 +70,7 @@
 					<tr>
 						<th>Title</th>
 						<th>Artist</th>
-						<th>Languages</th>
+						<th>Add or Edit Lyrics</th>
 						<th>Action</th>
 					</tr>
 				</thead>
@@ -75,7 +78,7 @@
 					<c:forEach items = "${songList }" var = "song">
 					<tr>
 						<td>
-							<a href="/${song.id}">
+							<a href="/play/${song.id}">
 								<c:out value="${song.title}"/></a>
 						</td>
 						<td><c:out value="${song.artist}"/></td>
@@ -87,7 +90,7 @@
 							</c:forEach>
 						</td>
 						<td>
-							<a href="/addLyrics/${song.id }">Add Lyrics</a>
+							<a href="/addLyrics/${song.id }">Add New Set of Lyrics</a>
 							<a href="/delete/${song.id}">Delete</a>											
 						</td>
 					</tr>

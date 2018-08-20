@@ -106,13 +106,17 @@ tr:nth-child(odd) {
 	color		: white;
 	font-size	: 1.1em;
 }
-.slabelDiv, .sinputDiv{
+.slabelDiv, .sinputDiv, .twoPerPage{
 	display			: inline-block;
 	vertical-align	: top;
 }
 .slabelDiv {
 	width		: 75px;
 }
+.twoPerPage {
+	width		: 300px;
+}
+
 
 
 

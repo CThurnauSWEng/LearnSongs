@@ -122,6 +122,42 @@ public class SongController {
     	return "homePage.jsp";
 	}
 	
+	@RequestMapping("/play/{id}")
+	public String chooseLanguages(HttpSession session, Model model, @PathVariable("id") Long songid){
+
+		Song song = songService.findById(songid);
+		model.addAttribute("song", song);
+		session.setAttribute("song", song);
+		
+		List<Lyric> lyricsForThisSong = song.getLyrics();
+		model.addAttribute("lyricsForThisSong", lyricsForThisSong);
+		
+		return "showSong.jsp";
+		
+	}
+	
+	@RequestMapping("/showLyrics/{id}")
+	public String showLyrics(HttpSession session, Model model, @PathVariable("id") Long songid, @RequestParam("language1") Lyric lyric1, @RequestParam("language2") Lyric lyric2) {
+
+		Song song = songService.findById(songid);
+		model.addAttribute("song", song);
+		session.setAttribute("song", song);
+		
+		model.addAttribute("lyric1", lyric1);
+		model.addAttribute("lyric2", lyric2);
+		
+		System.out.println("lyric1: " + lyric1.getLanguage());
+		System.out.println("lyric1: " + lyric1.getLanguage());
+		
+		List<Sline> lines1 = lyric1.getLyricLines();
+		model.addAttribute("lines1",lines1);
+		
+		List <Sline> lines2 = lyric2.getLyricLines();
+		model.addAttribute("lines2",lines2);
+		
+		return "redirect:/home";
+	}
+	
 	@RequestMapping(value = "/addLyrics/{id}")
 	public String addLyricsForm(HttpSession session, Model model, @PathVariable("id") Long songId) {
 		
