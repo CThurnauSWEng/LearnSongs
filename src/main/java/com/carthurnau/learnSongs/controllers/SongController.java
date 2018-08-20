@@ -147,7 +147,7 @@ public class SongController {
 		model.addAttribute("lyric2", lyric2);
 		
 		System.out.println("lyric1: " + lyric1.getLanguage());
-		System.out.println("lyric1: " + lyric1.getLanguage());
+		System.out.println("lyric2: " + lyric2.getLanguage());
 		
 		List<Sline> lines1 = lyric1.getLyricLines();
 		model.addAttribute("lines1",lines1);
@@ -155,7 +155,7 @@ public class SongController {
 		List <Sline> lines2 = lyric2.getLyricLines();
 		model.addAttribute("lines2",lines2);
 		
-		return "redirect:/home";
+		return "showLyrics.jsp";
 	}
 	
 	@RequestMapping(value = "/addLyrics/{id}")
