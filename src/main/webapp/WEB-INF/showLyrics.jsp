@@ -42,8 +42,6 @@
 							<p>${line.lyricLine }</p>
 						</c:forEach>
 					</div>
-					<input type="submit" value="Display Lyrics" class="createButton"/>
-					
 				</form>
 
 			</div>
