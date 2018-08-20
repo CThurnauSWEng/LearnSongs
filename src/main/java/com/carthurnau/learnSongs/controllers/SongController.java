@@ -85,8 +85,6 @@ public class SongController {
 				songService.createSong(song,user);
 				session.setAttribute("song", song);
 
-				System.out.println(" 3: song in session: " + song.getTitle());
-				
 				return "redirect:/home";
 								
 			} else {
@@ -134,7 +132,6 @@ public class SongController {
 		model.addAttribute("lyric",lyric);
 		
 		session.setAttribute("song", song);
-		System.out.println(" 5: song in session: " + song.getTitle());
 		
 		return "addLyricsForm.jsp";
 				
@@ -145,10 +142,6 @@ public class SongController {
 
 		Song song = (Song) session.getAttribute("song");
 		model.addAttribute("song", song);
-
-		System.out.println(" 99: song in session: " + song.getTitle());
-		
-		System.out.println("lyric language: " + lyric.getLanguage());
 
 		if (result.hasErrors()) {
 			// unimplemented:  package errors and pass back to jsp
@@ -167,21 +160,15 @@ public class SongController {
 	
 	@RequestMapping("/addMoreLyricsForm/{songid}/{lyricid}")
 	public String addMoreLyricsForm(Model model, HttpSession session, @PathVariable("songid") Long songid, @PathVariable("lyricid") Long lyricid) {
-
-		System.out.println("1st line in addMoreLyricsForm");
 		
 		Song song = songService.findById(songid);
 		model.addAttribute("song", song);
 		session.setAttribute("song", song);
-		
-		System.out.println(" 10: song in session: " + song.getTitle());
-		
+				
 		Lyric lyric = lyricService.findById(lyricid);
 		session.setAttribute("lyric",lyric);
 		model.addAttribute("lyric",lyric);
-		
-		System.out.println(" 10: lyric " + lyric.getLanguage());
-		
+				
 		List<Sline> allLyricLines = lyric.getLyricLines();
 		model.addAttribute("allLyricLines", allLyricLines);
 		
@@ -194,18 +181,11 @@ public class SongController {
 	@RequestMapping(value = "/addLyrics", method = RequestMethod.POST)
 	public String addLyrics(Model model, HttpSession session, @Valid @ModelAttribute("sline") Sline sLine, BindingResult result) {
 		
-		System.out.println("sLine: " + sLine);
-
 		Lyric lyric = (Lyric) session.getAttribute("lyric");
 		model.addAttribute("lyric",lyric);
 		
-		System.out.println("lyric: " + lyric);
-		
 		Song song = (Song) session.getAttribute("song");
 		model.addAttribute("song", song);
-
-		System.out.println(" 20: song in session: " + song.getTitle());
-		
 
 		// Save the sLine object which will add the line to the lyric object
 		if (result.hasErrors()) {
@@ -215,9 +195,6 @@ public class SongController {
 	        }
 		} else {
 
-			System.out.println("sLine: " + sLine);
-			System.out.println("lyric: " + lyric);
-			
 			sLine.setLyric(lyric);
 			
 			
