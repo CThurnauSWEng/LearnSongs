@@ -5,7 +5,7 @@
 	color			: white;
 }
 
-.ovalButton, .ovalButtonSmall {
+.ovalButton, .ovalButtonSmall, .clearSearch {
 	color			: blue;
 	text-decoration	: none;
 	background-color: white;
@@ -16,6 +16,15 @@
 	left			: 20px;
 	margin			: 0px 10px 0px 10px;
 	padding			: 4px;
+}
+.clearSearch {
+	font-size		: .8em;
+	color			: black;
+	position		: relative;
+	top				: -18px;
+	left			: 85px;
+	margin			: 0px;
+	padding			: 1px;
 }
 .ovalButton {
 	font-size		: 1.1em;
@@ -75,7 +84,7 @@ h3 {
 }
 table {
 	margin-left: 15px;
-	margin-top: 50px;
+	margin-top: 20px;
 }
 table, td, th{
 	border: 1px solid black;
@@ -97,6 +106,12 @@ tr:nth-child(odd) {
 	margin-left	: 20px;
 }
 .searchDiv {
+	margin		: 5px;
+	padding		: 5px;
+	color		: white;
+	font-size	: 1em;
+}
+.subheader {
 	margin		: 10px;
 	padding		: 10px;
 	color		: white;
@@ -114,9 +129,23 @@ tr:nth-child(odd) {
 	width		: 75px;
 }
 .twoPerPage {
-	width		: 300px;
+	width		: auto;
+	margin-right: 50px;
 }
-
+.leftmargin {
+	margin-left	: 15px;
+}
+.pOnSky {
+	color		: white;
+	margin		: 0px 0px 0px 12px;
+	font-size	: 1.1em;
+}
+.h4OnSky {
+	color		: white;
+	margin		: 0px 0px 0px 30px;
+	font-size	: 1.2em;
+	font-style	: italic;
+}
 
 
 

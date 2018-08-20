@@ -25,45 +25,46 @@
 				
 			</div>
 			
-			<p><a href="/newSong" class="linkOnSky">Add a new song</a>
-
-			<div class="searchDiv">
-			
-				<form method="POST" action = "/searchByArtist">	
-					<div class="slabelDiv">
-						<label class="formLabel">Artist</label>				
-					</div>
-					<div class="sinputDiv">
-						<input type="text" name="artist" value=""/>				
-					</div>
-					
-					<input type="submit" value="Search">
-				</form>
-		
+			<div class="twoPerPage">
+				<h4 class="h4OnSky">Select song title to display lyrics in multiple languages</h4>
+				<a href="/newSong" class="ovalButtonSmall">Add a new song</a>
 			</div>
 			
-			<p></p>
-					
-			<div class="searchDiv">
+			<div class="twoPerPage">
 			
-				<form method="POST" action = "/searchByTitle">	
-					<div class="slabelDiv">
-						<label class="formLabel">Title</label>		
-					</div>
-					<div class="sinputDiv">
-						<input type="text" name="title" value=""/>				
-					</div>
+				<p class="pOnSky">Search</p>
+				<a href="/home" class="clearSearch">Clear Search</a>
 					
-					<input type="submit" value="Search">
-				</form>
+				<div class="searchDiv">
 				
-				<a href="/home" class="ovalButtonSmall">Clear Search</a> 
+					<form method="POST" action = "/searchByArtist">	
+						<div class="slabelDiv">
+							<label class="formLabel">Artist</label>				
+						</div>
+						<div class="sinputDiv">
+							<input type="text" name="artist" value=""/>				
+						</div>
+						
+						<input type="submit" value="Search">
+					</form>
+			
+				</div>
+				<div class="searchDiv">
 				
-				<h3>Select song title to display lyrics in multiple languages</h3>
-		
+					<form method="POST" action = "/searchByTitle">	
+						<div class="slabelDiv">
+							<label class="formLabel">Title</label>		
+						</div>
+						<div class="sinputDiv">
+							<input type="text" name="title" value=""/>				
+						</div>
+						
+						<input type="submit" value="Search">
+					</form>
+					
+				</div>
+				
 			</div>
-			
-
 			
 			<table>
 				<thead>
@@ -91,7 +92,7 @@
 						</td>
 						<td>
 							<a href="/addLyrics/${song.id }">Add New Set of Lyrics</a>
-							<a href="/delete/${song.id}">Delete</a>											
+							<a href="/delete/${song.id}" class="leftmargin">Delete</a>											
 						</td>
 					</tr>
 					</c:forEach>
