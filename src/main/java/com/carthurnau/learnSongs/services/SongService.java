@@ -2,6 +2,7 @@ package com.carthurnau.learnSongs.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -44,6 +45,17 @@ public class SongService {
 	public List<Song> findByArtist(String artist){
 		
 		return songRepository.findByArtistContaining(artist);
+	}
+	
+	public Song findById(Long id){
+		
+		Optional<Song> optionalSong = songRepository.findById(id);
+		
+		if (optionalSong.isPresent()) {
+			return optionalSong.get();
+		} else {
+			return null;
+		}
 	}
 	
 	public boolean uniqueSong(String title) {

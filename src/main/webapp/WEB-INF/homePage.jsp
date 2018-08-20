@@ -79,8 +79,15 @@
 								<c:out value="${song.title}"/></a>
 						</td>
 						<td><c:out value="${song.artist}"/></td>
-						<td>Placeholder for languages</td>
 						<td>
+							<c:forEach items = "${song.lyrics }" var = "lyric">
+								<ul>
+									<li><a href="/addMoreLyricsForm/${song.id }/${lyric.id }">${lyric.language }</a></li>
+								</ul>
+							</c:forEach>
+						</td>
+						<td>
+							<a href="/addLyrics/${song.id }">Add Lyrics</a>
 							<a href="/delete/${song.id}">Delete</a>											
 						</td>
 					</tr>
