@@ -26,9 +26,14 @@
 				
 			</div>
 			
-			<div class="genericForm">			
+			<div class="genericForm">	
+					
 				<h1 class="funTitle">Lyrics for ${song.title } in ${lyric.language }</h1>	
+				<p></p>
 				
+				<a href="/editLanguage/${lyric.id }" class="editLyricButton">Edit Language</a>
+				<a href="/deleteLyric/${lyric.id }" class="editLyricButton">Delete these lyrics</a>
+
 				<c:forEach items = "${allLyricLines }" var = "thisLine">
 					<p class="lyricLine">${thisLine.lyricLine }</p>
 				</c:forEach>

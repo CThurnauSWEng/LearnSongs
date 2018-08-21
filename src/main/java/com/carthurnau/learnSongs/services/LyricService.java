@@ -41,5 +41,11 @@ public class LyricService {
 		
 	}
 
+	public void deleteLyric(Long lyricid) {
+		
+		lyricRepository.deleteById(lyricid);
+		
+	}
+
 
 }

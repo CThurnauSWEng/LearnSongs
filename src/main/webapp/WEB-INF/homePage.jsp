@@ -71,7 +71,7 @@
 					<tr>
 						<th>Title</th>
 						<th>Artist</th>
-						<th>Add or Edit Lyrics</th>
+						<th>Add, Edit, or Delete Lyrics</th>
 						<th>Action</th>
 					</tr>
 				</thead>

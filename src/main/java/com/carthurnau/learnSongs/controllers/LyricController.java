@@ -152,6 +152,47 @@ public class LyricController {
 
 		return "redirect:/addMoreLyricsForm/" + song.getId() + "/" +  lyric.getId();
 	}
+	
+	@RequestMapping("/editLanguage/{lyricid}")
+	public String editLanguage(HttpSession session, Model model, @PathVariable("lyricid") Long lyricid) {
+
+		Song song = (Song) session.getAttribute("song");
+		model.addAttribute("song", song);
+			
+		Lyric lyric = lyricService.findById(lyricid);
+		model.addAttribute("lyric", lyric);
+		
+		System.out.println("sent song: " + song.getTitle() + " language: " + lyric.getLanguage());
+		
+		return "editLanguageForm.jsp";
+	}
+	
+	@RequestMapping(value = "/processEditLanguage/{lyricid}")
+	public String processEditLanguage(Model model, @PathVariable("lyricid") Long lyricid, @Valid @ModelAttribute("lyric") Lyric lyric, BindingResult result) {
+		
+		if (result.hasErrors()) {
+
+			return "redirect:/editLanguage/" + lyricid;
+
+		} else {
+			
+			lyric.setId(lyricid);
+			lyricService.updateLyric(lyric);
+			return "redirect:/home";
+
+		}
+		
+		
+	}
+	
+	@RequestMapping("/deleteLyric/{lyricid}")
+	public String deleteLyric(Model model, @PathVariable("lyricid") Long lyricid) {
+	
+		lyricService.deleteLyric(lyricid);
+		
+		return "redirect:/home";
+		
+	}
 
 
 
