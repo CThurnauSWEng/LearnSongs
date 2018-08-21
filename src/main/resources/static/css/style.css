@@ -5,17 +5,21 @@
 	color			: white;
 }
 
-.ovalButton, .ovalButtonSmall, .clearSearch {
+.ovalButton, .ovalButtonSmall, .clearSearch, .logoutButton {
 	color			: blue;
 	text-decoration	: none;
 	background-color: white;
 	border			: 1px solid grey;
 	border-radius	: 5px 5px 5px 5px;
 	position		: relative;
-	top				: 25px;
+	top				: 29px;
 	left			: 20px;
 	margin			: 0px 10px 0px 10px;
 	padding			: 4px;
+}
+.logoutButton {
+	top				: 30px;
+	left			: 20px;
 }
 .clearSearch {
 	font-size		: .8em;
@@ -43,7 +47,7 @@
   background: -webkit-linear-gradient(to top, #283E51, #0A2342);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to top, #283E51, #0A2342); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background: -olinear-gradient(to top, #283E51, #0A2342); 
-  height: 100vh;
+  height: 3000px;
 }
 
 .stars {
@@ -145,6 +149,12 @@ tr:nth-child(odd) {
 	margin		: 0px 0px 0px 30px;
 	font-size	: 1.2em;
 	font-style	: italic;
+}
+.lyricInputText {
+	width		: 300px;
+}
+.under {
+	text-decoration	: underline;
 }
 
 

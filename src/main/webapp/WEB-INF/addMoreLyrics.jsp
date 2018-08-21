@@ -35,7 +35,8 @@
 				
 				<form:form action="/addLyrics" method="Post" modelAttribute="sLine">
 					<div class="inputDiv">
-						<input type="text" name="lyricLine" value="enter text"/>
+						<p class="lyricLine">Line:</p>
+						<input type="text" class="lyricInputText" name="lyricLine" value=""/>
 						<input type="submit" value="submit"/>
 					</div>					
 				</form:form>

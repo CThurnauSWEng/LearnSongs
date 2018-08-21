@@ -98,6 +98,14 @@ public class SongController {
 		}
 	}
 	
+	@RequestMapping("/deleteSong/{songid}")
+	public String deleteSong(Model model, @PathVariable("songid") Long songid) {
+				
+		songService.deleteSong(songid);
+		
+		return "redirect:/home";
+	}
+	
 	@RequestMapping(value = "/searchByArtist", method = RequestMethod.POST)
 	public String searchByArtist(HttpSession session, Model model, @RequestParam(value="artist") String artist) {
 

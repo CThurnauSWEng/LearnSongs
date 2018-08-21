@@ -21,7 +21,7 @@
 
 				<h1 class="funTitle">Welcome <c:out value="${user.firstName }"/></h1>
 		
-				<a href="/logout" class="ovalButton" >Logout</a>
+				<a href="/logout" class="logoutButton" >Logout</a>
 				
 			</div>
 			
@@ -92,7 +92,7 @@
 						</td>
 						<td>
 							<a href="/addLyrics/${song.id }">Add New Set of Lyrics</a>
-							<a href="/delete/${song.id}" class="leftmargin">Delete</a>											
+							<a href="/deleteSong/${song.id}" class="leftmargin">Delete Song</a>											
 						</td>
 					</tr>
 					</c:forEach>

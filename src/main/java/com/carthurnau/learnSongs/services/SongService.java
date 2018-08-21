@@ -69,4 +69,8 @@ public class SongService {
 		}
 	}
 
+	public void deleteSong(Long songid) {
+		songRepository.deleteById(songid);		
+	}
+
 }

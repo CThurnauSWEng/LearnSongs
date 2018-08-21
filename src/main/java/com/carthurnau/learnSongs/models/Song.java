@@ -1,5 +1,6 @@
 package com.carthurnau.learnSongs.models;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -51,7 +52,7 @@ public class Song {
     }
 
     @OneToMany(mappedBy="song", fetch = FetchType.LAZY)
-    private List<Lyric> lyrics;
+    private List<Lyric> lyrics = new ArrayList<Lyric>();
     
     public Song() {
     	

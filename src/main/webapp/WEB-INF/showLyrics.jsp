@@ -31,13 +31,13 @@
 				<form method="POST" action="/showLyrics/${song.id }">		
 
 					<div class="twoPerPage">
-						<p>${lyric1.language }
+						<p class="under">${lyric1.language }
 						<c:forEach var="line" items="${lines1 }">
 							<p>${line.lyricLine }</p>
 						</c:forEach>
 					</div>
 					<div class="twoPerPage">
-						<p>${lyric2.language }
+						<p class="under">${lyric2.language }
 						<c:forEach var="line" items="${lines2 }">
 							<p>${line.lyricLine }</p>
 						</c:forEach>
