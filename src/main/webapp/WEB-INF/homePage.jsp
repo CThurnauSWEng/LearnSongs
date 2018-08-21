@@ -92,6 +92,7 @@
 						</td>
 						<td>
 							<a href="/addLyrics/${song.id }">Add New Set of Lyrics</a>
+							<a href="/editSong/${song.id }" class="leftmargin">Edit</a>
 							<a href="/deleteSong/${song.id}" class="leftmargin">Delete Song</a>											
 						</td>
 					</tr>

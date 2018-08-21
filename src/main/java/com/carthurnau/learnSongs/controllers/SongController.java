@@ -106,6 +106,31 @@ public class SongController {
 		return "redirect:/home";
 	}
 	
+	@RequestMapping("/editSong/{songid}")
+	public String editSong(Model model, @PathVariable("songid") Long songid) {
+		
+		Song song = songService.findById(songid);
+		model.addAttribute("song", song);
+		
+		return "editSongForm.jsp";
+	}
+	
+	@RequestMapping(value = "/processEditSong/{songid}", method = RequestMethod.POST)
+	public String processEditSong(Model model, @PathVariable("songid") Long songid, @Valid @ModelAttribute("song") Song song, BindingResult result ) {
+		
+		if (result.hasErrors()) {
+
+			return "redirect:/editSong/" + songid;
+
+		} else {
+
+			song.setId(songid);
+			songService.updateSong(song);
+			return "redirect:/home";
+		}
+		
+	}
+	
 	@RequestMapping(value = "/searchByArtist", method = RequestMethod.POST)
 	public String searchByArtist(HttpSession session, Model model, @RequestParam(value="artist") String artist) {
 
