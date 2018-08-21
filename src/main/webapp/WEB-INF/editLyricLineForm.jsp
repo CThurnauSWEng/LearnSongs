@@ -28,23 +28,13 @@
 			
 			<div class="genericForm">	
 					
-				<h1 class="funTitle">Lyrics for ${song.title } in ${lyric.language }</h1>	
+				<h1 class="funTitle">Edit line for ${song.title } in ${lyric.language }</h1>	
 				<p></p>
-				
-				<a href="/editLanguage/${lyric.id }" class="editLyricButton">Edit Language</a>
-				<a href="/deleteLyric/${lyric.id }" class="editLyricButton">Delete these lyrics</a>
-
-				<c:forEach items = "${allLyricLines }" var = "thisLine">
-					<p class="lyricLine">${thisLine.lyricLine }
-						<a href="/editLyricLine/${lyric.id }/${thisLine.id }" class="editLineButton">Edit</a>
-						<a href="/deleteLyricLine/${lyric.id }/${thisLine.id }" class="editLineButton">Delete</a>
-					</p>
-				</c:forEach>
-				
-				<form:form action="/addLyrics" method="Post" modelAttribute="sLine">
+								
+				<form:form action="/processEditLine/${song.id }/${lyric.id}/${sLine.id }" method="Post" modelAttribute="sLine">
 					<div class="inputDiv">
 						<p class="lyricLine">Line:</p>
-						<input type="text" class="lyricInputText" name="lyricLine" value=""/>
+						<input type="text" class="lyricInputText" name="lyricLine" value="${sLine.lyricLine }"/>
 						<input type="submit" value="submit"/>
 					</div>					
 				</form:form>

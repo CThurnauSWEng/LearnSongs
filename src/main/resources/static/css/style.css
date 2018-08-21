@@ -5,7 +5,7 @@
 	color			: white;
 }
 
-.ovalButton, .ovalButtonSmall, .clearSearch, .logoutButton, .editButton, .editLyricButton{
+.ovalButton, .ovalButtonSmall, .clearSearch, .logoutButton, .editButton, .editLyricButton, .editLineButton{
 	color			: blue;
 	text-decoration	: none;
 	background-color: white;
@@ -21,7 +21,7 @@
 	top				: 30px;
 	left			: 20px;
 }
-.clearSearch, .editButton, .editLyricButton {
+.clearSearch, .editButton, .editLyricButton, .editLineButton {
 	font-size		: .8em;
 	color			: black;
 	position		: relative;
@@ -32,6 +32,10 @@
 }
 .editLyricButton {
 	top				: -34px;
+	left			: 0px;
+}
+.editLineButton {
+	top				: 0px;
 	left			: 0px;
 }
 .ovalButton {
